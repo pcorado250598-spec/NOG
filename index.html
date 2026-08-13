@@ -1,281 +1,297 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Constructora DOSAN | Proyectos y Presentaciones Multimedia</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Constructora DOSAN | Innovación e Infraestructura</title>
+  <style>
+    :root {
+      --primary: #1A365D;
+      --secondary: #D69E2E;
+      --dark: #2D3748;
+      --light: #F7FAFC;
+      --white: #FFFFFF;
+    }
 
-        body {
-            background-color: #0f141d;
-            color: #f1f5f9;
-            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        /* Header / Navbar */
-        header {
-            background-color: #1e293b;
-            border-bottom: 2px solid #d97706;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: var(--light);
+    }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+    /* Contenedor y secciones en vertical */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-        .logo span {
-            color: #d97706;
-        }
+    section {
+      padding: 60px 0;
+      width: 100%;
+    }
 
-        .tagline {
-            font-size: 0.85rem;
-            color: #94a3b8;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+    /* Header & Navegación */
+    header {
+      background-color: var(--primary);
+      color: var(--white);
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-        /* Container General */
-        .main-container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
-            flex: 1;
-        }
+    header .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        /* Banner Hero */
-        .hero {
-            background: linear-gradient(rgba(15, 20, 29, 0.85), rgba(15, 20, 29, 0.95)), 
-                        radial-gradient(circle at center, #1e293b 0%, #0f141d 100%);
-            border: 1px solid #334155;
-            border-radius: 12px;
-            padding: 2.5rem 2rem;
-            text-align: center;
-            margin-bottom: 2.5rem;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
-        }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
 
-        .hero h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            color: #ffffff;
-        }
+    .logo span {
+      color: var(--secondary);
+    }
 
-        .hero p {
-            color: #94a3b8;
-            font-size: 1.05rem;
-            max-width: 700px;
-            margin: 0 auto 1.5rem auto;
-        }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
 
-        .badge {
-            display: inline-block;
-            background-color: rgba(217, 119, 6, 0.2);
-            color: #f59e0b;
-            border: 1px solid #d97706;
-            padding: 0.35rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
 
-        /* Sección de Video */
-        .video-section {
-            background-color: #1e293b;
-            border-radius: 12px;
-            padding: 1.5rem;
-            border: 1px solid #334155;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
+    nav a:hover {
+      color: var(--secondary);
+    }
 
-        .video-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding-bottom: 0.75rem;
-            border-bottom: 1px solid #334155;
-        }
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(26, 54, 93, 0.85), rgba(26, 54, 93, 0.85)), 
+                  url('https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+      color: var(--white);
+      text-align: center;
+      padding: 100px 20px;
+    }
 
-        .video-header h2 {
-            font-size: 1.25rem;
-            color: #f8fafc;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+    }
 
-        /* Contenedor Adaptativo 16:9 */
-        .video-container {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* Relación de Aspecto 16:9 */
-            height: 0;
-            border-radius: 8px;
-            overflow: hidden;
-            background-color: #000000;
-            border: 1px solid #475569;
-        }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 25px;
+    }
 
-        /* La API inyectará el iframe dentro o sobre el div objetivo */
-        .video-container #player {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
+    .btn {
+      display: inline-block;
+      background-color: var(--secondary);
+      color: var(--dark);
+      padding: 12px 30px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
 
-        .video-actions {
-            display: flex;
-            justify-content: flex-end;
-            gap: 1rem;
-        }
+    .btn:hover {
+      background-color: #b78120;
+      color: var(--white);
+    }
 
-        .btn-external {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background-color: #d97706;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 0.6rem 1.2rem;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: background-color 0.2s ease;
-        }
+    /* Títulos de sección */
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: var(--primary);
+      position: relative;
+    }
 
-        .btn-external:hover {
-            background-color: #b45309;
-        }
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background-color: var(--secondary);
+      margin: 10px auto 0;
+    }
 
-        /* Footer */
-        footer {
-            background-color: #0b0f17;
-            border-top: 1px solid #1e293b;
-            padding: 1.5rem;
-            text-align: center;
-            font-size: 0.85rem;
-            color: #64748b;
-            margin-top: 2rem;
-        }
+    /* Sobre Nosotros */
+    .about-content {
+      background-color: var(--white);
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      margin-bottom: 20px;
+    }
 
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 5px;
-                text-align: center;
-            }
-            .hero h1 {
-                font-size: 1.6rem;
-            }
-        }
-    </style>
+    /* Sección de Proyectos / YouTube Playlist */
+    .playlist-section {
+      background-color: #EDF2F7;
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+      background-color: #000;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* Servicios */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .service-card {
+      background: var(--white);
+      padding: 30px;
+      border-radius: 8px;
+      border-top: 4px solid var(--secondary);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .service-card h3 {
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    /* Contacto & Footer */
+    footer {
+      background-color: var(--primary);
+      color: var(--white);
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    footer p {
+      margin-bottom: 10px;
+    }
+
+    /* Ajustes responsivos */
+    @media (max-width: 768px) {
+      header .nav-container {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Encabezado Institucional -->
-    <header>
-        <div>
-            <div class="logo">CONSTRUCTORA <span>DOSAN</span></div>
-            <div class="tagline">Ingeniería & Arquitectura de Vanguardia</div>
-        </div>
-    </header>
-
-    <!-- Contenido Principal -->
-    <div class="main-container">
-        
-        <!-- Sección de Bienvenida -->
-        <section class="hero">
-            <span class="badge">Portal Corporativo</span>
-            <h1>Avance de Obras y Presentaciones de Proyectos</h1>
-            <p>Bienvenido al canal multimedia oficial de Constructora DOSAN. A continuación, puede reproducir nuestra lista completa de proyectos.</p>
-        </section>
-
-        <!-- Sección del Reproductor -->
-        <section class="video-section">
-            <div class="video-header">
-                <h2>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#d97706"><path d="M8 5v14l11-7z"/></svg>
-                    Lista de Reproducción Completa de Proyectos
-                </h2>
-            </div>
-
-            <!-- Div Target cargado dinámicamente mediante la IFrame API -->
-            <div class="video-container">
-                <div id="player"></div>
-            </div>
-
-            <div class="video-actions">
-                <a href="https://www.youtube.com/playlist?list=PLdjc_NR61jok" target="_blank" rel="noopener noreferrer" class="btn-external">
-                    Ver lista directamente en YouTube
-                </a>
-            </div>
-        </section>
-
+  <!-- Encabezado -->
+  <header>
+    <div class="container nav-container">
+      <div class="logo">CONSTRUCTORA <span>DOSAN</span></div>
+      <nav>
+        <ul>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#proyectos">Proyectos en Video</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
 
-    <!-- Pie de página -->
-    <footer>
-        &copy; 2026 Constructora DOSAN. Todos los derechos reservados.
-    </footer>
+  <!-- Hero / Portada -->
+  <section class="hero">
+    <div class="container">
+      <h1>Construyendo el Futuro de tus Proyectos</h1>
+      <p>En Constructora DOSAN somos especialistas en obra civil, diseño arquitectónico y desarrollo de infraestructura integral con los más altos estándares de calidad.</p>
+      <a href="#proyectos" class="btn">Ver Proyectos</a>
+    </div>
+  </section>
 
-    <!-- Script de Inicialización de la YouTube IFrame Player API -->
-    <script>
-        // 1. Cargar asíncronamente la API de iFrame de YouTube
-        var tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  <!-- Sobre Nosotros -->
+  <section id="nosotros" class="container">
+    <h2 class="section-title">Quiénes Somos</h2>
+    <div class="about-content">
+      <p>En <strong>Constructora DOSAN</strong> nos dedicamos a transformar ideas en estructuras sólidas e innovadoras. Con años de experiencia en el sector de la construcción, ofrecemos soluciones eficientes, sostenibles y adaptadas a las necesidades de cada cliente, garantizando puntualidad y excelencia en cada etapa del desarrollo.</p>
+    </div>
+  </section>
 
-        // 2. Función global requerida por la API cuando el código del reproductor está listo
-        var player;
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('player', {
-                height: '100%',
-                width: '100%',
-                playerVars: {
-                    'listType': 'playlist',
-                    'list': 'PLdjc_NR61jok',
-                    'rel': 0,
-                    'modestbranding': 1
-                },
-                events: {
-                    'onError': onPlayerError
-                }
-            });
-        }
+  <!-- Playlist de YouTube -->
+  <section id="proyectos" class="playlist-section">
+    <div class="container">
+      <h2 class="section-title">Nuestros Proyectos en Video</h2>
+      <p style="text-align: center; margin-bottom: 25px;">Explora nuestra lista de reproducción con los avances, recorridos y ejecuciones de obra más recientes.</p>
+      
+      <!-- Contenedor adaptativo iframe para la Playlist -->
+      <div class="video-wrapper">
+        <iframe 
+          src="https://www.youtube.com/embed/videoseries?list=PLdjc_NR61jok" 
+          title="Playlist de Proyectos - Constructora DOSAN" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
 
-        // 3. Manejador de errores para depuración
-        function onPlayerError(event) {
-            console.error('Error al cargar la playlist (Código de error YouTube):', event.data);
-            // Event.data 150/101 indica que los videos tienen deshabilitada la inserción externa.
-        }
-    </script>
+  <!-- Servicios -->
+  <section id="servicios" class="container">
+    <h2 class="section-title">Nuestros Servicios</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Edificación y Obra Civil</h3>
+        <p>Construcción residencial, comercial e industrial garantizando la máxima seguridad estructural.</p>
+      </div>
+      <div class="service-card">
+        <h3>Diseño y Planificación</h3>
+        <p>Elaboración de planos, modelado 3D y gestión integral de licencias y permisos de construcción.</p>
+      </div>
+      <div class="service-card">
+        <h3>Remodelaciones e Infraestructura</h3>
+        <p>Mantenimiento, ampliaciones y modernización de espacios con acabados de primera calidad.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pie de página / Contacto -->
+  <footer id="contacto">
+    <div class="container">
+      <p><strong>Constructora DOSAN</strong> — Excelencia en Construcción</p>
+      <p>Contacto: contacto@constructoradosan.com | Tel: +502 0000-0000</p>
+      <p>&copy; 2026 Constructora DOSAN. Todos los derechos reservados.</p>
+    </div>
+  </footer>
 
 </body>
 </html>
