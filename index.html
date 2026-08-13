@@ -127,6 +127,7 @@
             gap: 8px;
         }
 
+        /* Contenedor Adaptativo 16:9 */
         .video-container {
             position: relative;
             width: 100%;
@@ -138,7 +139,8 @@
             border: 1px solid #475569;
         }
 
-        .video-container iframe {
+        /* La API inyectará el iframe dentro o sobre el div objetivo */
+        .video-container #player {
             position: absolute;
             top: 0;
             left: 0;
@@ -223,14 +225,9 @@
                 </h2>
             </div>
 
-            <!-- REPRODUCTOR DE PLAYLIST COMPLETA -->
+            <!-- Div Target cargado dinámicamente mediante la IFrame API -->
             <div class="video-container">
-                <iframe 
-                    src="https://www.youtube.com/embed/videoseries?list=PLdjc_NR61jok" 
-                    title="Constructora DOSAN - Lista de Proyectos YouTube" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowfullscreen>
-                </iframe>
+                <div id="player"></div>
             </div>
 
             <div class="video-actions">
@@ -246,6 +243,39 @@
     <footer>
         &copy; 2026 Constructora DOSAN. Todos los derechos reservados.
     </footer>
+
+    <!-- Script de Inicialización de la YouTube IFrame Player API -->
+    <script>
+        // 1. Cargar asíncronamente la API de iFrame de YouTube
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        // 2. Función global requerida por la API cuando el código del reproductor está listo
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '100%',
+                width: '100%',
+                playerVars: {
+                    'listType': 'playlist',
+                    'list': 'PLdjc_NR61jok',
+                    'rel': 0,
+                    'modestbranding': 1
+                },
+                events: {
+                    'onError': onPlayerError
+                }
+            });
+        }
+
+        // 3. Manejador de errores para depuración
+        function onPlayerError(event) {
+            console.error('Error al cargar la playlist (Código de error YouTube):', event.data);
+            // Event.data 150/101 indica que los videos tienen deshabilitada la inserción externa.
+        }
+    </script>
 
 </body>
 </html>
